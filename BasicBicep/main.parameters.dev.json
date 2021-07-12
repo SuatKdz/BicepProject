@@ -1,0 +1,35 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "appServicePlanSku": {
+            "value": {
+                "name": "F1",
+                "tier": "Free"
+            }
+        },
+        "sqlDatabaseSku": {
+            "value": {
+                "name": "Standard",
+                "tier": "Standard"
+            }
+        },
+        "sqlServerAdminLogin": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/48dcbdca-2fe4-4889-97de-45a4b08999ca/resourceGroups/learn-3a22f55e-dd2a-4aff-8892-cacb76f67f1a/providers/Microsoft.KeyVault/vaults/ToyHRKey"
+                },
+                "secretName": "sqlServerAdminLogin"
+            }
+        },
+        "sqlServerAdminPassword": {
+            "reference": {
+                "keyVault": {
+                    "id": "/subscriptions/48dcbdca-2fe4-4889-97de-45a4b08999ca/resourceGroups/learn-3a22f55e-dd2a-4aff-8892-cacb76f67f1a/providers/Microsoft.KeyVault/vaults/ToyHRKey"
+                },
+                "secretName": "sqlServerAdminPassword"
+            }
+        }
+        
+    }
+}
